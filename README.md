@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+# Frontend for Ticket System with AI Agent
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for a Ticket System with an AI Agent, built with React, Vite, and TypeScript.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User authentication with JWT.
+- Protected routes for authenticated users.
+- Create, view, and manage tickets.
+- Admin panel for user management.
+- Displays AI-generated ticket analysis, including summary, priority, and related skills.
 
-## React Compiler
+## Pages
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **`/`**: The main page, which displays the list of tickets.
+- **`/tickets/:id`**: Displays the details of a specific ticket.
+- **`/login`**: The login page.
+- **`/signup`**: The signup page.
+- **`/admin`**: The admin panel for managing users.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/Avaneesh-Chopdekar/ticket-ai-agent-frontend
+    ```
+2.  Navigate to the frontend directory:
+    ```bash
+    cd ticket-ai-agent-frontend
+    ```
+3.  Install the dependencies using pnpm:
+    ```bash
+    pnpm install
+    ```
+4.  Create a `.env` file in the `ticket-ai-agent-frontend` directory and add the following environment variable:
+    ```
+    VITE_SERVER_URL=<your-backend-server-url>
+    ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Usage
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+To run the development server, use:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+To build the project for production, use:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm run build
 ```
+
+To preview the production build, use:
+
+```bash
+pnpm run preview
+```
+
+## Scripts
+
+- `dev`: Starts the development server.
+- `build`: Builds the project for production.
+- `lint`: Lints the code using ESLint.
+- `preview`: Previews the production build.
+
+## Dependencies
+
+- [@tailwindcss/vite](https://www.npmjs.com/package/@tailwindcss/vite): A Vite plugin for Tailwind CSS.
+- [react](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [react-dom](https://reactjs.org/docs/react-dom.html): A package for working with the DOM in React.
+- [react-markdown](https://www.npmjs.com/package/react-markdown): A React component to render Markdown.
+- [react-router-dom](https://reactrouter.com/): A collection of navigational components for React.
+- [tailwindcss](https://tailwindcss.com/): A utility-first CSS framework.
+
+## Dev Dependencies
+
+- [@eslint/js](https://www.npmjs.com/package/@eslint/js): The core ESLint library.
+- [@types/node](https://www.npmjs.com/package/@types/node): Type definitions for Node.js.
+- [@types/react](https://www.npmjs.com/package/@types/react): Type definitions for React.
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): Type definitions for React DOM.
+- [@vitejs/plugin-react-swc](https://www.npmjs.com/package/@vitejs/plugin-react-swc): A Vite plugin for SWC.
+- [daisyui](https://daisyui.com/): A Tailwind CSS component library.
+- [eslint](https://eslint.org/): A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+- [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks): An ESLint plugin for React Hooks.
+- [eslint-plugin-react-refresh](https://www.npmjs.com/package/eslint-plugin-react-refresh): An ESLint plugin for React Refresh.
+- [globals](https://www.npmjs.com/package/globals): A package with global variables for ESLint.
+- [typescript](https://www.typescriptlang.org/): A typed superset of JavaScript that compiles to plain JavaScript.
+- [typescript-eslint](https://typescript-eslint.io/): A tool for using TypeScript with ESLint.
+- [vite](https://vitejs.dev/): A build tool that aims to provide a faster and leaner development experience for modern web projects.
